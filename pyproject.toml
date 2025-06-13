@@ -1,0 +1,23 @@
+[project]
+name = "sphere"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "taco-tortilla",email = "tortillataco0@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "sphere", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+flake8 = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
