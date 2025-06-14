@@ -5,11 +5,12 @@ def encrypt(mapping_data: dict[str, str | int], text: str) -> str:
     """Encrypt a given text using a mapping loaded from a JSON file.
 
     Args:
-        mapping_data (dict[str, str | int]): The mapping dictionary containing character replacements.
+        mapping_data (dict[str, str | int]):
+            The mapping dictionary containing character replacements.
         text (str): The input text to be encrypted.
 
     Returns:
-        str: The encrypted text, where each character is replaced according to the mapping.
+        str: The encrypted text.
     """
     target = normalize_input(text)
 

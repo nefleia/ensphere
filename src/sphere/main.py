@@ -9,7 +9,7 @@ def main():
 
         while True:
             text = input(">> ")
-            if text.lower() == 'exit':
+            if text.lower() == "exit":
                 break
 
             result = encrypt(mapping_data, text)

@@ -10,7 +10,8 @@ def get_mapping() -> dict[str, str | int]:
         Exception: An error occurred while loading the mapping.
 
     Returns:
-        dict[str, str | int]: A dictionary containing the mapping from the JSON file.
+        dict[str, str | int]:
+            A dictionary containing the mapping from the JSON file.
     """
     original_mapping = _load_mapping()
     validate_mapping(original_mapping)
@@ -26,7 +27,8 @@ def _load_mapping() -> dict[str, str | int]:
         Exception: An error occurred while loading the mapping.
 
     Returns:
-        dict[str, str | int]: A dictionary containing the mapping from the JSON file.
+        dict[str, str | int]:
+            A dictionary containing the mapping from the JSON file.
     """
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     mapping_file_path = os.path.join(BASE_DIR, "mapping", "mapping.json")
@@ -61,6 +63,7 @@ def _lower_mapping(mapping: dict[str, str | int]) -> dict[str, str | int]:
         mapping (dict[str, str | int]): The original mapping dictionary.
 
     Returns:
-        dict[str, str | int]: A new dictionary with all keys converted to lowercase.
+        dict[str, str | int]:
+            A new dictionary with all keys converted to lowercase.
     """
     return {k.lower(): v for k, v in mapping.items()}

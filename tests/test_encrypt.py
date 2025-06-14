@@ -23,7 +23,9 @@ def dummy_mapping():
         ("", ""),
     ],
 )
-def test_encrypt_basic(mock_load_mapping, dummy_mapping, input_text, expected_output):
+def test_encrypt_basic(
+    mock_load_mapping, dummy_mapping, input_text, expected_output
+):
     mock_load_mapping.return_value = dummy_mapping
     assert encrypt(input_text) == expected_output
 
