@@ -1,5 +1,3 @@
-from unittest.mock import patch
-
 import pytest
 
 from src.sphere.encrypt import encrypt
@@ -11,7 +9,6 @@ def dummy_mapping():
     return {"a": 1, "b": 2, "c": 3, " ": 0}
 
 
-@patch("src.sphere.encrypt.load_mapping")
 @pytest.mark.parametrize(
     "input_text, expected_output",
     [
@@ -23,20 +20,13 @@ def dummy_mapping():
         ("", ""),
     ],
 )
-def test_encrypt_basic(
-    mock_load_mapping, dummy_mapping, input_text, expected_output
-):
-    mock_load_mapping.return_value = dummy_mapping
-    assert encrypt(input_text) == expected_output
+def test_encrypt_basic(dummy_mapping, input_text, expected_output):
+    assert encrypt(dummy_mapping, input_text) == expected_output
 
 
-@patch("src.sphere.encrypt.load_mapping")
-def test_encrypt_mixed_characters(mock_load_mapping, dummy_mapping):
-    mock_load_mapping.return_value = dummy_mapping
-    assert encrypt("aXbYcZ") == "1 * 2 * 3 *"
+def test_encrypt_mixed_characters(dummy_mapping):
+    assert encrypt(dummy_mapping, "aXbYcZ") == "1 * 2 * 3 *"
 
 
-@patch("src.sphere.encrypt.load_mapping")
-def test_encrypt_empty_string(mock_load_mapping, dummy_mapping):
-    mock_load_mapping.return_value = dummy_mapping
-    assert encrypt("") == ""
+def test_encrypt_empty_string(dummy_mapping):
+    assert encrypt(dummy_mapping, "") == ""
