@@ -1,4 +1,4 @@
-from sphere.entrypt import encrypt
+from sphere.encrypt import encrypt
 
 
 def main():
