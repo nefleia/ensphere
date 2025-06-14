@@ -1,15 +1,18 @@
+from sphere import mapping
 from sphere.encrypt import encrypt
 
 
 def main():
-    print("Enter text to encrypt (or 'exit' to quit):")
     try:
+        mapping_data = mapping.get_mapping()
+        print("Enter text to encrypt (or 'exit' to quit):")
+
         while True:
             text = input(">> ")
             if text.lower() == 'exit':
                 break
 
-            result = encrypt(text)
+            result = encrypt(mapping_data, text)
             print(result)
 
     except KeyboardInterrupt:
