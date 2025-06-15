@@ -27,4 +27,4 @@ def reverse_mappging(
     Returns:
         dict[str, str | int]: A new dictionary with keys and values reversed.
     """
-    return {v: k for k, v in mapping_data.items()}
+    return {str(v): k for k, v in mapping_data.items()}
