@@ -5,7 +5,6 @@ from src.sphere.encrypt import encrypt
 
 @pytest.fixture
 def dummy_mapping():
-    # a, b, c, space のみ対応
     return {"a": 1, "b": 2, "c": 3, " ": 0}
 
 
