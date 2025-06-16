@@ -1,5 +1,5 @@
 import json
-import os
+from pathlib import Path
 
 
 def get_codebook() -> dict[str, str | int]:
@@ -26,8 +26,8 @@ def _load_codebook_json() -> dict[str, str | int]:
         dict[str, str | int]:
             A dictionary containing the codebook from the JSON file.
     """
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    codebook_file_path = os.path.join(BASE_DIR, "codebook", "codebook.json")
+    project_root = Path(__file__).resolve().parent.parent.parent
+    codebook_file_path = project_root / "codebook.json"
 
     try:
         with open(codebook_file_path, "r") as file:
@@ -63,3 +63,8 @@ def _lower_codebook(codebook: dict[str, str | int]) -> dict[str, str | int]:
             A new dictionary with all keys converted to lowercase.
     """
     return {k.lower(): v for k, v in codebook.items()}
+
+
+if __name__ == "__main__":
+    codebook = get_codebook()
+    print(codebook)
