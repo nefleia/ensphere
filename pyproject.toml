@@ -1,5 +1,5 @@
 [project]
-name = "sphere"
+name = "ensphere"
 version = "0.1.0"
 description = ""
 authors = [
@@ -12,10 +12,10 @@ dependencies = [
 ]
 
 [project.scripts]
-sphere = "sphere.cli:cli"
+ensphere = "ensphere.cli:cli"
 
 [tool.poetry]
-packages = [{include = "sphere", from = "src"}]
+packages = [{include = "ensphere", from = "src"}]
 
 
 [tool.poetry.group.dev.dependencies]

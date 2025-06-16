@@ -1,6 +1,6 @@
 import pytest
 
-from src.sphere.decrypt import decrypt
+from src.ensphere.decrypt import decrypt
 
 
 @pytest.fixture

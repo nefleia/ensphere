@@ -1,6 +1,6 @@
 import pytest
 
-from src.sphere.encrypt import encrypt
+from src.ensphere.encrypt import encrypt
 
 
 @pytest.fixture

@@ -1,8 +1,8 @@
 import click
 
-from sphere import coodbook
-from sphere.decrypt import decrypt
-from sphere.encrypt import encrypt
+from ensphere import coodbook
+from ensphere.decrypt import decrypt
+from ensphere.encrypt import encrypt
 
 
 @click.group()
