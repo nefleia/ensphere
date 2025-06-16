@@ -1,6 +1,6 @@
 import click
 
-from ensphere import coodbook
+from ensphere.codebook import get_codebook
 from ensphere.decrypt import decrypt
 from ensphere.encrypt import encrypt
 
@@ -15,7 +15,7 @@ def cli():
 def encrypt_command():
     """Encrypt a string using the mapping."""
     try:
-        codebook = coodbook.get_codebook()
+        codebook = get_codebook()
         text = click.prompt("Enter text to encrypt")
         result = encrypt(codebook, text)
         click.echo(result)
@@ -27,7 +27,7 @@ def encrypt_command():
 def decrypt_command():
     try:
         """Decrypt a string using the mapping."""
-        codebook = coodbook.get_codebook()
+        codebook = get_codebook()
         text = click.prompt("Enter text to decrypt")
         result = decrypt(codebook, text)
         click.echo(result)
