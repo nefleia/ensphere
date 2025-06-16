@@ -1,6 +1,6 @@
 import click
 
-from sphere import mapping
+from sphere import coodbook
 from sphere.decrypt import decrypt
 from sphere.encrypt import encrypt
 
@@ -14,18 +14,18 @@ def cli():
 @cli.command()
 def encrypt_command():
     """Encrypt a string using the mapping."""
-    mapping_data = mapping.get_mapping()
+    codebook = coodbook.get_codebook()
     text = click.prompt("Enter text to encrypt")
-    result = encrypt(mapping_data, text)
+    result = encrypt(codebook, text)
     click.echo(result)
 
 
 @cli.command()
 def decrypt_command():
     """Decrypt a string using the mapping."""
-    mapping_data = mapping.get_mapping()
+    codebook = coodbook.get_codebook()
     text = click.prompt("Enter text to decrypt")
-    result = decrypt(mapping_data, text)
+    result = decrypt(codebook, text)
     click.echo(result)
 
 

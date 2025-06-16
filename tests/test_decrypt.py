@@ -4,7 +4,7 @@ from src.sphere.decrypt import decrypt
 
 
 @pytest.fixture
-def dummy_mapping():
+def dummy_codebook():
     return {"a": 1, "b": 2, "c": 3, " ": 0}
 
 
@@ -18,5 +18,5 @@ def dummy_mapping():
         ("", ""),
     ],
 )
-def test_decrypt_basic(dummy_mapping, input_text, expected_output):
-    assert decrypt(dummy_mapping, input_text) == expected_output
+def test_decrypt_basic(dummy_codebook, input_text, expected_output):
+    assert decrypt(dummy_codebook, input_text) == expected_output

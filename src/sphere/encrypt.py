@@ -1,11 +1,11 @@
 import unicodedata
 
 
-def encrypt(mapping_data: dict[str, str | int], text: str) -> str:
+def encrypt(codebook: dict[str, str | int], text: str) -> str:
     """Encrypt a given text using a mapping loaded from a JSON file.
 
     Args:
-        mapping_data (dict[str, str | int]):
+        codebook (dict[str, str | int]):
             The mapping dictionary containing character replacements.
         text (str): The input text to be encrypted.
 
@@ -14,7 +14,7 @@ def encrypt(mapping_data: dict[str, str | int], text: str) -> str:
     """
     target = normalize_input(text)
 
-    encrypted = [mapping_data.get(ch, "*") for ch in target]
+    encrypted = [codebook.get(ch, "*") for ch in target]
     result = " ".join(str(x) for x in encrypted)
     return result
 

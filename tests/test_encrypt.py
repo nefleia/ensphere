@@ -4,7 +4,7 @@ from src.sphere.encrypt import encrypt
 
 
 @pytest.fixture
-def dummy_mapping():
+def dummy_codebook():
     return {"a": 1, "b": 2, "c": 3, " ": 0}
 
 
@@ -19,13 +19,13 @@ def dummy_mapping():
         ("", ""),
     ],
 )
-def test_encrypt_basic(dummy_mapping, input_text, expected_output):
-    assert encrypt(dummy_mapping, input_text) == expected_output
+def test_encrypt_basic(dummy_codebook, input_text, expected_output):
+    assert encrypt(dummy_codebook, input_text) == expected_output
 
 
-def test_encrypt_mixed_characters(dummy_mapping):
-    assert encrypt(dummy_mapping, "aXbYcZ") == "1 * 2 * 3 *"
+def test_encrypt_mixed_characters(dummy_codebook):
+    assert encrypt(dummy_codebook, "aXbYcZ") == "1 * 2 * 3 *"
 
 
-def test_encrypt_empty_string(dummy_mapping):
-    assert encrypt(dummy_mapping, "") == ""
+def test_encrypt_empty_string(dummy_codebook):
+    assert encrypt(dummy_codebook, "") == ""
