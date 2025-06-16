@@ -7,13 +7,13 @@ from ensphere.encrypt import encrypt
 
 @click.group()
 def cli():
-    """Sphere CLI for encryption and decryption."""
+    """CLI for encrypting and decrypting text using a codebook."""
     pass
 
 
 @cli.command()
 def encrypt_command():
-    """Encrypt a string using the mapping."""
+    """Encrypt a string using the codebook."""
     try:
         codebook = get_codebook()
         text = click.prompt("Enter text to encrypt")
@@ -25,8 +25,8 @@ def encrypt_command():
 
 @cli.command()
 def decrypt_command():
+    """Decrypt a string using the codebook."""
     try:
-        """Decrypt a string using the mapping."""
         codebook = get_codebook()
         text = click.prompt("Enter text to decrypt")
         result = decrypt(codebook, text)
