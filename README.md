@@ -37,19 +37,38 @@ This file defines the character mapping used for encryption and decryption.
 
 ### 3. Run
 
+#### Encrypt text from prompt
+
 ```bash
 ensphere encrypt
 ```
 
+#### Encrypt text from a .txt file
+
+```bash
+ensphere encrypt --file path/to/input.txt
+```
+
+- Only `.txt` files are allowed for the `--file` option. If a non-txt file is specified, an error will occur.
+
+#### Decrypt text from prompt
+
 ```bash
 ensphere decrypt
 ```
+
+#### Options
+
+- `-f`, `--file FILE` File path of the text to be encrypted (only .txt files are allowed)
 
 #### Example
 
 ```bash
 $ ensphere encrypt
 Enter text to encrypt: Hello, World!
+8 5 12 12 15 38 68 23 15 18 12 4 40
+
+$ ensphere encrypt --file test.txt
 8 5 12 12 15 38 68 23 15 18 12 4 40
 
 $ ensphere decrypt
