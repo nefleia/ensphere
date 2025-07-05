@@ -20,6 +20,7 @@ def cli():
 
 
 @cli.command()
+@click.argument("text", required=False)
 @click.option(
     "-f",
     "--file",
@@ -28,13 +29,13 @@ def cli():
     help="File path of the text to be encrypted. "
     "(only .txt files are allowed)",
 )
-def encrypt_command(file):
+def encrypt_command(text, file):
     """Encrypt a string using the codebook."""
     try:
         codebook = get_codebook()
         if file:
             text = file.read()
-        else:
+        elif text is None:
             text = click.prompt("Enter text to encrypt")
         result = encrypt(codebook, text)
         click.echo(result)
@@ -43,11 +44,13 @@ def encrypt_command(file):
 
 
 @cli.command()
-def decrypt_command():
+@click.argument("text", required=False)
+def decrypt_command(text):
     """Decrypt a string using the codebook."""
     try:
         codebook = get_codebook()
-        text = click.prompt("Enter text to decrypt")
+        if text is None:
+            text = click.prompt("Enter text to decrypt")
         result = decrypt(codebook, text)
         click.echo(result)
     except Exception as e:
